@@ -50,7 +50,7 @@ int snake_x = cols / 2; // Initial x position of the snake (center of the board)
 int snake_y = rows / 2; // Initial y position of the snake (center of the board)
 
 void draw_snake() { // Placeholder function to draw the snake on the board
-    board[snake_y * cols + snake_x] = 'O'; // Set the current position of the snake to 'O' on the board
+    board[snake_y * cols + snake_x] = '@'; // Set the current position of the snake to '@' on the board
 }
 
 void move_snake_up(int deltaX, int deltaY) { // Placeholder function to move the snake up
@@ -74,17 +74,25 @@ void move_snake_right(int deltaX, int deltaY) { // Placeholder function to move 
 }
 
 void read_keyboard() { // This function will read keyboard input and update the game state accordingly
+    int ch = getch();
     
-    if (_kbhit()) { // Check if a key has been pressed. _kbhit() is a non-blocking function that returns true if a key has been pressed, allowing the game loop to continue running without waiting for user input.
-        int ch = getch();
-
-        switch (ch) {
-            case 'w': move_snake_up(0, -1); break;
-            case 's': move_snake_down(0, 1); break;
-            case 'a': move_snake_left(-1, 0); break;
-            case 'd': move_snake_right(1, 0); break;
-        }
+    switch (ch) {
+        case 'w': move_snake_up(0, -1); break;
+        case 's': move_snake_down(0, 1); break;
+        case 'a': move_snake_left(-1, 0); break;
+        case 'd': move_snake_right(1, 0); break;
     }
+    
+    // if (_kbhit()) { // Check if a key has been pressed. _kbhit() is a non-blocking function that returns true if a key has been pressed, allowing the game loop to continue running without waiting for user input.
+    //     int ch = getch();
+
+    //     switch (ch) {
+    //         case 'w': move_snake_up(0, -1); break;
+    //         case 's': move_snake_down(0, 1); break;
+    //         case 'a': move_snake_left(-1, 0); break;
+    //         case 'd': move_snake_right(1, 0); break;
+    //     }
+    // }
 
 }
 
