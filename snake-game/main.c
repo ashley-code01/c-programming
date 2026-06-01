@@ -75,8 +75,8 @@ void move_snake_right(int deltaX, int deltaY) { // Placeholder function to move 
 
 void read_keyboard() { // This function will read keyboard input and update the game state accordingly
     
-    if (_kbhit()) { // Check if a key has been pressed
-        int ch = getch(); // Read the key that was pressed without waiting for the Enter key (non-blocking)
+    if (_kbhit()) { // Check if a key has been pressed. _kbhit() is a non-blocking function that returns true if a key has been pressed, allowing the game loop to continue running without waiting for user input.
+        int ch = getch();
 
         switch (ch) {
             case 'w': move_snake_up(0, -1); break;
