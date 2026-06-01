@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <conio.h>
 
 #define cols 30
@@ -21,8 +22,20 @@ void fill_board() { // Fills the board with '#' characters for the borders and '
     }
 }
 
+void clear_screen() { // Clears the console screen
+    system("cls"); // Clear the console screen (Windows specific command)
+
+    // on linux
+    // system("clear"); // Clear the console screen (Linux specific command)
+    // or 
+    // printf("\033[H\033[J"); // Clear the console screen using ANSI escape codes (cross-platform)
+}
+
 void print_board() { // Prints the board to the console
     int x, y;
+
+    // clear screen
+    clear_screen();
 
     for (y = 0; y < rows; y++) {
         for (x = 0; x < cols; x++) {
@@ -40,19 +53,23 @@ void draw_snake() { // Placeholder function to draw the snake on the board
 }
 
 void move_snake_up(int deltaX, int deltaY) { // Placeholder function to move the snake up
-    // This function will update the snake's position on the board based on the input direction
+    snake_x += deltaX; // Update the snake's x position based on the input direction
+    snake_y += deltaY; // Update the snake's y position based on the input direction
 }
 
 void move_snake_down(int deltaX, int deltaY) { // Placeholder function to move the snake down
-    // This function will update the snake's position on the board based on the input direction
+    snake_x += deltaX; // Update the snake's x position based on the input direction
+    snake_y += deltaY; // Update the snake's y position based on the input direction
 }
 
 void move_snake_left(int deltaX, int deltaY) { // Placeholder function to move the snake left
-    // This function will update the snake's position on the board based on the input direction
+    snake_x += deltaX; // Update the snake's x position based on the input direction
+    snake_y += deltaY; // Update the snake's y position based on the input direction
 }
 
 void move_snake_right(int deltaX, int deltaY) { // Placeholder function to move the snake right
-    // This function will update the snake's position on the board based on the input direction
+    snake_x += deltaX; // Update the snake's x position based on the input direction
+    snake_y += deltaY; // Update the snake's y position based on the input direction
 }
 
 void read_keyboard() { // This function will read keyboard input and update the game state accordingly
