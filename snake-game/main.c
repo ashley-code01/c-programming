@@ -31,8 +31,31 @@ void print_board() { // Prints the board to the console
     }
 }
 
+void move_snake_up(int deltaX, int deltaY) { // Placeholder function to move the snake up
+    // This function will update the snake's position on the board based on the input direction
+}
+
+void move_snake_down(int deltaX, int deltaY) { // Placeholder function to move the snake down
+    // This function will update the snake's position on the board based on the input direction
+}
+
+void move_snake_left(int deltaX, int deltaY) { // Placeholder function to move the snake left
+    // This function will update the snake's position on the board based on the input direction
+}
+
+void move_snake_right(int deltaX, int deltaY) { // Placeholder function to move the snake right
+    // This function will update the snake's position on the board based on the input direction
+}
+
 void read_keyboard() { // This function will read keyboard input and update the game state accordingly
     int ch = getch();
+
+    switch (ch) {
+        case 'w': move_snake_up(0, -1); break;
+        case 's': move_snake_down(0, 1); break;
+        case 'a': move_snake_left(-1, 0); break;
+        case 'd': move_snake_right(1, 0); break;
+    }
 }
 
 int main(int argc, char *argv[]) {
