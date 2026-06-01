@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <windows.h>
 #include <stdlib.h>
 #include <conio.h>
 
@@ -73,22 +74,26 @@ void move_snake_right(int deltaX, int deltaY) { // Placeholder function to move 
 }
 
 void read_keyboard() { // This function will read keyboard input and update the game state accordingly
-    int ch = getch();
+    
+    if (_kbhit()) { // Check if a key has been pressed. _kbhit() is a non-blocking function that returns true if a key has been pressed, allowing the game loop to continue running without waiting for user input.
+        int ch = getch();
 
-    switch (ch) {
-        case 'w': move_snake_up(0, -1); break;
-        case 's': move_snake_down(0, 1); break;
-        case 'a': move_snake_left(-1, 0); break;
-        case 'd': move_snake_right(1, 0); break;
+        switch (ch) {
+            case 'w': move_snake_up(0, -1); break;
+            case 's': move_snake_down(0, 1); break;
+            case 'a': move_snake_left(-1, 0); break;
+            case 'd': move_snake_right(1, 0); break;
+        }
     }
+
 }
 
 int main(int argc, char *argv[]) {
 
     while (!isGameOver) { // Main game loop.
         fill_board();
+        draw_snake(); // Draw the snake on the board
         print_board();
-        draw_snake();
         read_keyboard(); // Main game loop where keyboard input is read and game state is updated
     }
 
