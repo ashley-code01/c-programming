@@ -5,6 +5,7 @@
 #define rows 15
 
 char board[cols * rows]; // A 1D array to represent the 2D board, where each cell can be accessed using board[y * cols + x]
+int isGameOver = 0; // A flag to indicate whether the game is over or not. The game will end when the snake collides with itself or the wall.
 
 void fill_board() { // Fills the board with '#' characters for the borders and ' ' for the inside
     int x, y;
@@ -29,6 +30,13 @@ void print_board() { // Prints the board to the console
         }
         putchar('\n'); // Print a newline character after each row
     }
+}
+
+int snake_x = cols / 2; // Initial x position of the snake (center of the board)
+int snake_y = rows / 2; // Initial y position of the snake (center of the board)
+
+void draw_snake() { // Placeholder function to draw the snake on the board
+    board[snake_y * cols + snake_x] = 'O'; // Set the current position of the snake to 'O' on the board
 }
 
 void move_snake_up(int deltaX, int deltaY) { // Placeholder function to move the snake up
@@ -60,11 +68,12 @@ void read_keyboard() { // This function will read keyboard input and update the 
 
 int main(int argc, char *argv[]) {
 
-    while (1) { // Main game loop. 1 -> true, so this loop will run indefinitely until the game is exited
+    while (!isGameOver) { // Main game loop.
         fill_board();
         print_board();
+        draw_snake();
         read_keyboard(); // Main game loop where keyboard input is read and game state is updated
     }
-    
+
     return 0;
 }
