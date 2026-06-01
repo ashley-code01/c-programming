@@ -20,6 +20,10 @@ int main() {
     int d = a; // Assigning the value of variable 'a' to variable 'd'
     printf("The value of d is: %d\n", d);
 
+    // declare multiple variables of the same type in a single line
+    int x = 5, y = 10, z = 15;
+    printf("Values of x, y and z are: %d, %d, %d\n", x, y, z);
+
     int age = 26; // Declaring an integer variable 'age' and initializing it with the value 26
     printf("The value of age is: %d\n", age); // Printing the value of variable 'age'
 
