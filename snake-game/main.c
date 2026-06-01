@@ -59,8 +59,12 @@ void read_keyboard() { // This function will read keyboard input and update the 
 }
 
 int main(int argc, char *argv[]) {
-    fill_board();
-    print_board();
-    read_keyboard(); // Main game loop where keyboard input is read and game state is updated
+
+    while (1) { // Main game loop. 1 -> true, so this loop will run indefinitely until the game is exited
+        fill_board();
+        print_board();
+        read_keyboard(); // Main game loop where keyboard input is read and game state is updated
+    }
+    
     return 0;
 }
